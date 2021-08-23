@@ -5,15 +5,15 @@ using namespace std;
 // 4. Implement Default Constructor Implementation
 // 5. Implement Overloaded Constructor Implementation
 // 6. Implement Destructor (display "Destructor Called")
-Item::Item(){
+Item :: Item(){
   itemCode =0;
-  uniPrice = 0.0;
+  unitPrice = 0.0;
   discount = 0;
 }
 
-Item::Item(int pitemcode , float puniPrice){
+Item::Item(int pitemcode , float punitPrice){
   itemCode = pitemcode;
-  uniPrice = punitPrice;
+  unitPrice = punitPrice;
 }
 
 void Item::setDiscount(float pdiscount) {
@@ -23,12 +23,15 @@ void Item::setDiscount(float pdiscount) {
 float Item::getDiscount() {
   return discount;
 }
-
-float Item::discountedPrice() {
-   return unitPrice - unitPrice * discount/100;
+Item::~Item() {
+  cout << "Destructor Called" << endl;
 }
 
 void Item::display() {
   cout << "Item : " << itemCode << endl;
   cout << "Discounted Price " << discountedPrice() << endl;
+}
+
+float Item::discountedPrice() {
+   return unitPrice - unitPrice * discount/100;
 }
